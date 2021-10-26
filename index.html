@@ -1149,7 +1149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let sdoMap = JSON.parse(`{}`);
-let biblio = JSON.parse(`{"refsByClause":{"sec-math.clamp":["_ref_0","_ref_1","_ref_2"]},"entries":[{"type":"clause","id":"intro","aoid":null,"titleHTML":"Introduction","number":"","referencingIds":[]},{"type":"clause","id":"sec-math.clamp","aoid":null,"title":"Math.clamp ( number, min, max )","titleHTML":"Math.clamp ( <var>number</var>, <var>min</var>, <var>max</var> )","number":"1","referencingIds":[]},{"type":"clause","id":"sec-copyright-and-software-license","aoid":null,"title":"Copyright & Software License","titleHTML":"Copyright &amp; Software License","number":"A","referencingIds":[]}]}`);
+
 ;let usesMultipage = false</script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/base16/solarized-light.min.css"><style>body {
   display: flex;
   font-size: 18px;
@@ -2343,10 +2343,7 @@ li.menu-search-result-term:before {
 .clause-attributes-tag a {
   color: #884400;
 }
-</style></head><body><div id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; stroke:currentColor" viewBox="0 0 120 120">
-      <title>Menu</title>
-      <path stroke-width="10" stroke-linecap="round" d="M30,60 h60  M30,30 m0,5 h60  M30,90 m0,-5 h60"></path>
-    </svg></div><div id="menu-spacer"></div><div id="menu"><div id="menu-search"><input type="text" id="menu-search-box" placeholder="Search..."><div id="menu-search-results" class="inactive"></div></div><div id="menu-pins"><div class="menu-pane-header">Pins</div><ul id="menu-pins-list"></ul></div><div class="menu-pane-header">Table of Contents</div><div id="menu-toc"><ol class="toc"><li><span class="item-toggle-none"></span><a href="#intro" title="Introduction">Introduction</a></li><li><span class="item-toggle-none"></span><a href="#sec-math.clamp" title="Math.clamp ( number, min, max )"><span class="secnum">1</span> Math.clamp ( <var>number</var>, <var>min</var>, <var>max</var> )</a></li><li><span class="item-toggle-none"></span><a href="#sec-copyright-and-software-license" title="Copyright &amp; Software License"><span class="secnum">A</span> Copyright &amp; Software License</a></li></ol></div></div><div id="spec-container"><h1 class="version">Stage 0 Draft / October 26, 2021</h1><h1 class="title">Math.clamp</h1>
+</style></head><body><div id="spec-container"><h1 class="version">Stage 0 Draft / October 26, 2021</h1><h1 class="title">Math.clamp</h1>
 
 <emu-intro id="intro">
 	<h1>Introduction</h1>
@@ -2355,9 +2352,8 @@ li.menu-search-result-term:before {
 
 <emu-clause id="sec-math.clamp">
 	<h1><span class="secnum">1</span> Math.clamp ( <var>number</var>, <var>min</var>, <var>max</var> )</h1>
-	<p>The <code>clamp</code> function returns a number that is the result of constraining <var>number</var> between the lower bound defined
-		by <var>min</var> and the upper bound defined by <var>max</var>.</p>
-	<emu-alg><ol><li>Let <var>n</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_0"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>number</var>).</li><li>Let <var>mn</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_1"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>min</var>).</li><li>Let <var>mx</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_2"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>max</var>).</li><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: ! <var>mn</var> &gt; <var>mx</var>.</li><li>If <var>n</var> &lt; <var>mn</var>, return <var>mn</var>.</li><li>If <var>n</var>&gt; <var>mx</var>, return <var>mx</var>.</li><li>Return <var>n</var>.</li></ol></emu-alg>
+	<p>The <code>clamp</code> function returns a number that is the result of constraining <var>number</var> between the lower bound defined by <var>min</var> and the upper bound defined by <var>max</var>.</p>
+	<emu-alg><ol><li>Let <var>n</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_0"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>number</var>).</li><li>Let <var>mn</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_1"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>min</var>).</li><li>Let <var>mx</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_2"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>max</var>).</li><li>If <var>mn</var> &gt; <var>mx</var>, throw a <emu-val>RangeError</emu-val> exception.</li><li>If <var>n</var> &lt; <var>mn</var>, return <var>mn</var>.</li><li>If <var>n</var> &gt; <var>mx</var>, return <var>mx</var>.</li><li>Return <var>n</var>.</li></ol></emu-alg>
 </emu-clause><emu-annex id="sec-copyright-and-software-license">
       <h1><span class="secnum">A</span> Copyright &amp; Software License</h1>
       
@@ -2377,4 +2373,5 @@ li.menu-search-result-term:before {
 
 <p>THIS SOFTWARE IS PROVIDED BY THE ECMA INTERNATIONAL "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL ECMA INTERNATIONAL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 
-    </emu-annex></div></body>
+    </emu-annex>
+</div></body>

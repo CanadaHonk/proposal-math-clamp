@@ -113,7 +113,7 @@ Similar functionality exists in other languages with most using a similar name. 
 ## Credits
 
 - Specification improved from the [`Math` Extensions Proposal](https://github.com/rwaldron/proposal-math-extensions)
-- Specification and implementation further inspired by [`math-clamp`][math-clamp]
+- Specification and reference implementation further inspired by [`math-clamp`][math-clamp]
 
 [math-clamp]: https://github.com/sindresorhus/math-clamp/blob/3897064dd3e9711a2e47e891d0aa7eb66ccdcef8/index.js#L1-L15
 [math-min]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
