@@ -23,7 +23,7 @@
 	},
 	"scripts": {
 		"docs": "ecmarkup spec.html index.html --lint-spec",
-		"test": "xo"
+		"test": "xo && node ./test-implementation.js"
 	},
 	"keywords": [
 		"math",
