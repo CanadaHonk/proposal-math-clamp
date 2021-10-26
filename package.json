@@ -1,6 +1,6 @@
 {
 	"name": "proposal-math-clamp",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"description": "ECMAScript reference implementation for `Math.clamp`.",
 	"repository": "Richienb/proposal-math-clamp",
 	"author": {
