@@ -1,0 +1,39 @@
+{
+	"name": "proposal-math-clamp",
+	"version": "0.1.0",
+	"description": "ECMAScript reference implementation for `Math.clamp`.",
+	"repository": "Richienb/proposal-math-clamp",
+	"author": {
+		"name": "Richie Bendall",
+		"email": "richiebendall@gmail.com"
+	},
+	"license": "BSD-3-Clause",
+	"type": "module",
+	"exports": {
+		".": "./implementation.js",
+		"./polyfill": "./polyfill.js"
+	},
+	"files": [
+		"implementation.js",
+		"implementation.d.ts",
+		"polyfill.js"
+	],
+	"engines": {
+		"node": ">=12.20"
+	},
+	"scripts": {
+		"docs": "ecmarkup spec.html index.html --lint-spec",
+		"test": "xo"
+	},
+	"keywords": [
+		"math",
+		"clamp"
+	],
+	"dependencies": {
+		"es-abstract": "^1.19.1"
+	},
+	"devDependencies": {
+		"ecmarkup": "^9.4.1",
+		"xo": "^0.45.0"
+	}
+}
