@@ -101,6 +101,11 @@ Similar functionality exists in other languages with most using a similar name. 
 - [`clamp`](https://ruby-doc.org/core-2.4.0/Comparable.html#method-i-clamp) in Ruby
 - [`clamp`](https://package.elm-lang.org/packages/elm/core/latest/Basics#clamp) in Elm
 
+## Specification
+
+- [Ecmarkup source](spec.html)
+- [HTML version](https://richienb.github.io/proposal-math-clamp)
+
 ## Implementations
 
 - [Polyfill](polyfill.js)
