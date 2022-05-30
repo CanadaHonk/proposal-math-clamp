@@ -1,4 +1,4 @@
-<pre class=metadata>
+<pre class="metadata">
 title: Math.clamp
 toc: false
 stage: 0
@@ -11,15 +11,12 @@ contributors: Richie Bendall
 </emu-intro>
 
 <emu-clause id="sec-math.clamp">
-	<h1>Math.clamp ( _number_, _min_, _max_ )</h1>
+	<h1>Math.clamp ( _min_, _number_, _max_ )</h1>
 	<p>The `clamp` function returns a number that is the result of constraining _number_ between the lower bound defined by _min_ and the upper bound defined by _max_.</p>
 	<emu-alg>
-		1. Let _n_ be ? ToNumber(_number_).
-		1. Let _mn_ be ? ToNumber(_min_).
-		1. Let _mx_ be ? ToNumber(_max_).
-		1. If _mn_ > _mx_, throw a *RangeError* exception.
-		1. If _n_ < _mn_, return _mn_.
-		1. If _n_ > _mx_, return _mx_.
-		1. Return _n_.
+		1. Let _minCoerced_ be ? ToNumber(_min_).
+		1. Let _numberCoerced_ be ? ToNumber(_number_).
+		1. Let _maxCoerced_ be ? ToNumber(_max_).
+		1. Return max(_minCoerced_, min(_numberCoerced_, _maxCoerced_)).
 	</emu-alg>
 </emu-clause>

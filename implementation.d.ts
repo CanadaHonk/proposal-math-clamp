@@ -1,4 +1,4 @@
 /**
 Constrain a value between an upper and lower bound.
 */
-export default function clamp(number: number, min: number, max: number): number;
+export default function clamp(min: number, number: number, max: number): number;

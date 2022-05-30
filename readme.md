@@ -51,23 +51,25 @@ Both of these common strategies also disregard the potential undefined behaviour
 The proposed API allows a developer to clamp numbers without creating a separate function:
 
 ```js
-Math.clamp(5, 0, 10);
+Math.clamp(0, 5, 10);
 //=> 5
 
-Math.clamp(-5, 0, 10);
+Math.clamp(0, -5, 10);
 //=> 0
 
-Math.clamp(15, 0, 10);
+Math.clamp(0, 15, 10);
 //=> 10
 ```
 
-It also gracefully catches undefined behavior:
+It also handles a larger minimum than maximum number, analogous to the [CSS `clamp()` function][css-clamp-spec].
 
 ```js
 // Minimum number is larger than maximum value
-Math.clamp(5, 10, 0);
-//=> RangeError: The minimum value cannot be higher than the maximum value
+Math.clamp(10, 5, 0);
+//=> 10
 ```
+
+For reasoning on the order of arguments, see [the previous discussion](https://github.com/w3c/csswg-drafts/issues/2519#issuecomment-387803089) for the CSS function of the same name.
 
 ### Real-world scenarios
 
@@ -108,7 +110,7 @@ Similar functionality exists in other languages with most using a similar name. 
 
 ## Implementations
 
-- [Polyfill](polyfill.js)
+- [Reference Polyfill](polyfill.js)
 
 ## Credits
 
@@ -119,3 +121,4 @@ Similar functionality exists in other languages with most using a similar name. 
 [math-min]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
 [math-max]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 [css-clamp]: https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()
+[css-clamp-spec]: https://drafts.csswg.org/css-values/#funcdef-clamp

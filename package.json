@@ -7,7 +7,7 @@
 		"name": "Richie Bendall",
 		"email": "richiebendall@gmail.com"
 	},
-	"license": "BSD-3-Clause",
+	"license": "MIT",
 	"type": "module",
 	"exports": {
 		".": "./implementation.js",
@@ -30,7 +30,7 @@
 		"clamp"
 	],
 	"dependencies": {
-		"es-abstract": "^1.19.1"
+		"es-abstract": "^1.20.1"
 	},
 	"devDependencies": {
 		"ecmarkup": "^9.4.1",
