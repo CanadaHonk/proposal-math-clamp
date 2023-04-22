@@ -11,12 +11,12 @@ contributors: Richie Bendall
 </emu-intro>
 
 <emu-clause id="sec-math.clamp">
-	<h1>Math.clamp ( _min_, _number_, _max_ )</h1>
+	<h1>Math.clamp ( _min_, _val_, _max_ )</h1>
 	<p>The `clamp` function returns a number that is the result of constraining _number_ between the lower bound defined by _min_ and the upper bound defined by _max_.</p>
 	<emu-alg>
 		1. Let _minCoerced_ be ? ToNumber(_min_).
-		1. Let _numberCoerced_ be ? ToNumber(_number_).
+		1. Let _valCoerced_ be ? ToNumber(_val_).
 		1. Let _maxCoerced_ be ? ToNumber(_max_).
-		1. Return max(_minCoerced_, min(_numberCoerced_, _maxCoerced_)).
+		1. Return max(_minCoerced_, min(_valCoerced_, _maxCoerced_)).
 	</emu-alg>
 </emu-clause>
