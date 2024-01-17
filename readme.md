@@ -14,31 +14,15 @@ A [clamping function](https://en.wikipedia.org/wiki/Clamping_(graphics)) constra
 
 The primary motivation for this function is to bring parity with the [CSS function][css-clamp] of the same name. It will be useful when using it in conjunction with the [CSS Painting API](https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API).
 
-## Examples
+That is, given `Math.clamp(VAL, MIN, MAX)`, it represents exactly the same value as `Math.max(MIN, Math.min(VAL, MAX))`.
 
-Currently the problem is solved in two ways:
-
-- Chaining mathematical operators with if statements or ternary operators
-
-```js
-function clamp(number, minimum, maximum) {
-	if (number < minimum) {
-		return minimum;
-	}
-
-	if (number > maximum) {
-		return maximum;
-	}
-
-	return number;
-}
-```
+## Polyfill
 
 - Nesting [`Math.min`][math-min] and [`Math.max`][math-max] calls
 
 ```js
-function clamp(number, minimum, maximum) {
-	return Math.min(Math.max(number, minimum), maximum);
+function clamp(value, minimum, maximum) {
+	return Math.max(minimum, Math.min(value, maximum));
 }
 ```
 
@@ -58,7 +42,10 @@ Math.clamp(0, -5, 10);
 //=> 0
 
 Math.clamp(0, 15, 10);
-//=> 10
+//=> 15
+
+Math.clamp(50, 15, 10);
+//=> 15
 ```
 
 It also handles a larger minimum than maximum number, analogous to the [CSS `clamp()` function][css-clamp-spec].
@@ -66,7 +53,7 @@ It also handles a larger minimum than maximum number, analogous to the [CSS `cla
 ```js
 // Minimum number is larger than maximum value
 Math.clamp(10, 5, 0);
-//=> 10
+//=> 5
 ```
 
 For reasoning on the order of arguments, see [the previous discussion](https://github.com/w3c/csswg-drafts/issues/2519#issuecomment-387803089) for the CSS function of the same name.
@@ -93,6 +80,8 @@ See the [p5.js demo](https://p5js.org/reference/#/p5/constrain) for its `constra
 ## Naming in other languages
 
 Similar functionality exists in other languages with most using a similar name. This is why the function will also be called `clamp`.
+
+Note: This may not be the same as other languages, e.g. in C++, C#, Rust, an error is thrown when `MIN` is greater than `MAX`.
 
 - **[`clamp`][css-clamp] in CSS**
 - [`Math.Clamp`](https://docs.microsoft.com/en-us/dotnet/api/system.math.clamp?view=netcore-2.0) in C#
