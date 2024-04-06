@@ -2,10 +2,18 @@ import esAbstract from 'es-abstract';
 
 const {ToNumber: toNumber} = esAbstract;
 
-export default function clamp(min, val, max) {
-	const minCoerced = toNumber(min);
-	const valCoerced = toNumber(val);
-	const maxCoerced = toNumber(max);
+export default function clamp(number, min, max) {
+	number = toNumber(number);
 
-	return Math.max(minCoerced, Math.min(valCoerced, maxCoerced));
+	if (max !== undefined && max !== null) {
+		max = toNumber(max);
+		number = Math.min(number, max);
+	}
+
+	if (min !== undefined && min !== null) {
+		min = toNumber(min);
+		number = Math.max(number, min);
+	}
+
+	return number;
 }

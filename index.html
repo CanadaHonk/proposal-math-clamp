@@ -2407,7 +2407,7 @@ li.menu-search-result-term:before {
   <li><span>Toggle "can call user code" annotations</span><code>u</code></li>
 
   <li><span>Jump to search box</span><code>/</code></li>
-</ul></div><div id="spec-container"><h1 class="version">Stage 0 Draft / April 22, 2023</h1><h1 class="title">Math.clamp</h1>
+</ul></div><div id="spec-container"><h1 class="version">Stage 0 Draft / April 6, 2024</h1><h1 class="title">Math.clamp</h1>
 
 <emu-intro id="intro">
 	<h1>Introduction</h1>
@@ -2415,14 +2415,14 @@ li.menu-search-result-term:before {
 </emu-intro>
 
 <emu-clause id="sec-math.clamp">
-	<h1><span class="secnum">1</span> Math.clamp ( <var>min</var>, <var>val</var>, <var>max</var> )</h1>
-	<p>The <code>clamp</code> function returns a number that is the result of constraining <var>number</var> between the lower bound defined by <var>min</var> and the upper bound defined by <var>max</var>.</p>
-	<emu-alg><ol><li>Let <var>minCoerced</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_0"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>min</var>).</li><li>Let <var>valCoerced</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_1"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>val</var>).</li><li>Let <var>maxCoerced</var> be ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_2"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>max</var>).</li><li>Return <emu-xref aoid="max"><a href="https://tc39.es/ecma262/#eqn-max">max</a></emu-xref>(<var>minCoerced</var>, <emu-xref aoid="min"><a href="https://tc39.es/ecma262/#eqn-min">min</a></emu-xref>(<var>valCoerced</var>, <var>maxCoerced</var>)).</li></ol></emu-alg>
+	<h1><span class="secnum">1</span> Math.clamp ( <var>number</var>, <var>min</var>, <var>max</var> )</h1>
+	<p>This function returns the <emu-xref href="#number-value"><a href="https://tc39.es/ecma262/#number-value">Number value</a></emu-xref> that is the result of constraining <var>number</var> between the bounds defined by <var>min</var> and <var>max</var>.</p>
+	<emu-alg><ol><li>Set <var>number</var> to ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_0"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>number</var>).</li><li>If <var>max</var> is neither <emu-val>undefined</emu-val> nor <emu-val>null</emu-val>, then<ol><li>Set <var>max</var> to ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_1"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>max</var>).</li><li>Set <var>number</var> to <emu-xref aoid="min"><a href="https://tc39.es/ecma262/#eqn-min">min</a></emu-xref>(<var>number</var>, <var>max</var>).</li></ol></li><li>If <var>min</var> is neither <emu-val>undefined</emu-val> nor <emu-val>null</emu-val>, then<ol><li>Set <var>min</var> to ?&nbsp;<emu-xref aoid="ToNumber" id="_ref_2"><a href="https://tc39.es/ecma262/#sec-tonumber">ToNumber</a></emu-xref>(<var>min</var>).</li><li>Set <var>number</var> to <emu-xref aoid="max"><a href="https://tc39.es/ecma262/#eqn-max">max</a></emu-xref>(<var>number</var>, <var>min</var>).</li></ol></li><li>Return <var>number</var>.</li></ol></emu-alg>
 </emu-clause><emu-annex id="sec-copyright-and-software-license">
       <h1><span class="secnum">A</span> Copyright &amp; Software License</h1>
       
       <h2>Copyright Notice</h2>
-      <p>© 2023 Richie Bendall</p>
+      <p>© 2024 Richie Bendall</p>
 
       <h2>Software License</h2>
       <p>All Software contained in this document ("Software") is protected by copyright and is being made available under the "BSD License", included below. This Software may be subject to third party rights (rights from parties other than Ecma International), including patent rights, and no licenses under such third party rights are granted under this license even if the third party concerned is a member of Ecma International. SEE THE ECMA CODE OF CONDUCT IN PATENT MATTERS AVAILABLE AT https://ecma-international.org/memento/codeofconduct.htm FOR INFORMATION REGARDING THE LICENSING OF PATENT CLAIMS THAT ARE REQUIRED TO IMPLEMENT ECMA INTERNATIONAL STANDARDS.</p>
@@ -2437,4 +2437,5 @@ li.menu-search-result-term:before {
 
 <p>THIS SOFTWARE IS PROVIDED BY THE ECMA INTERNATIONAL "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL ECMA INTERNATIONAL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 
-    </emu-annex></div></body>
+    </emu-annex>
+</div></body>
