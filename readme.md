@@ -110,7 +110,7 @@ Math.clamp(5, undefined, 10);
 
 ## Acknowledgements
 
-Specification and implementation inspired by:
+Specification and reference implementation inspired by:
 - [`Math` Extensions Proposal](https://github.com/rwaldron/proposal-math-extensions)
 - [`math-clamp`][math-clamp]
 
