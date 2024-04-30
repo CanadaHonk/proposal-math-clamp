@@ -64,7 +64,7 @@ We name it the function `clamp`, like how it is in other programming languages..
 
 Another motivation is to bring parity with the [CSS function][css-clamp] of the same name, although it will have a different parameter order because of the slightly different use cases in each context (also see [the previous discussion on the order of options for CSS `clamp`](https://github.com/w3c/csswg-drafts/issues/2519#issuecomment-387803089).
 
-Recognizing the usefulness and improved readability of only specifying either a `min` or `max` (i.e. `Math.min(number, 5)` vs `Math.clamp(number, undefined, 5)`), we consider also allowing `null` or `undefined` as values for `min` and `max` to semantically mean "no upper/lower bound". We consider this as opposed to `Math.clampMin` and `Math.clampMax`, or an optional bag, to remain conventional to the language.
+Recognizing the usefulness and improved readability of only specifying either a `min` or `max` (i.e. `Math.min(number, 5)` vs `Math.clamp(number, undefined, 5)`), we consider also allowing `null` or `undefined` as values for `min` and `max` to semantically mean "no upper/lower bound". We consider this as opposed to `Math.clampMin` and `Math.clampMax`, or an option bag, to remain conventional to the language.
 
 ## Examples
 
