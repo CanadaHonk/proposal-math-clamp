@@ -89,7 +89,7 @@ Math.clamp(10, 5, 0);
 //=> 10
 ```
 
-It supports `null`/`undefined`/`-Infinity`/`-Infinity` to specify when there is no upper or lower bound:
+It supports `null`/`undefined`/`-Infinity`/`Infinity` to specify when there is no upper or lower bound:
 
 ```js
 Math.clamp(5, 0, null);
