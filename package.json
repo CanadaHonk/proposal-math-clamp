@@ -22,7 +22,7 @@
 		"node": ">=12.20"
 	},
 	"scripts": {
-		"docs": "ecmarkup spec.html index.html --lint-spec",
+		"docs": "ecmarkup spec.html output/index.html --lint-spec",
 		"test": "xo && node ./test-implementation.js"
 	},
 	"keywords": [
