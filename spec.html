@@ -14,12 +14,12 @@ contributors: Richie Bendall
 	<h1>Math.clamp ( _number_, _min_, _max_ )</h1>
 	<p>This function returns the Number value that is the result of constraining _number_ between the bounds defined by _min_ and _max_.</p>
 	<emu-alg>
-		1. Set _number_ to ? ToNumber(_number_).
+		1. If _number_ is not a Number, throw a *TypeError* exception.
 		1. If _max_ is neither *undefined* nor *null*, then
-			1. Set _max_ to ? ToNumber(_max_).
+			1. If _max_ is not a Number, throw a *TypeError* exception.
 			1. Set _number_ to min(_number_, _max_).
 		1. If _min_ is neither *undefined* nor *null*, then
-			1. Set _min_ to ? ToNumber(_min_).
+			1. If _min_ is not a Number, throw a *TypeError* exception.
 			1. Set _number_ to max(_number_, _min_).
 		1. Return _number_.
 	</emu-alg>
