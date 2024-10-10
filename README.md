@@ -1,12 +1,13 @@
 # `Math.clamp`
 
-ECMAScript proposal and reference implementation for `Math.clamp`.
+A TC39 proposal to add `Math.clamp`: a function that constrains a value between an upper and lower bound.
 
-**Author:** Richie Bendall
+## Status
 
-**Champion:** None
-
-**Stage:** 0
+**Stage:** 0  \
+**Champion:** Oliver Medhurst (@canadahonk)  \
+**Authors:** Oliver Medhurst (@canadahonk), Richie Bendall (@richienb)  \
+**Last Presented:** (unpresented)
 
 ## Overview and motivation
 
@@ -54,7 +55,7 @@ We name it the function `clamp`, like how it is in other programming languages..
 ...and userland implementations:
 
 - [`clamp`](https://github.com/hughsk/clamp/blob/377851f0cca9f3f134b53881e294782cccdae4d8/index.js#L3-L7)
-- [`math-clamp`][math-clamp]
+- [`math-clamp`](https://github.com/sindresorhus/math-clamp/blob/3897064dd3e9711a2e47e891d0aa7eb66ccdcef8/index.js#L1-L15)
 - [`lodash`](https://github.com/lodash/lodash/blob/bb7c95947914d12af5f79e7369dd59ce29bc61a8/clamp.js)
 - [`three.js`](https://github.com/mrdoob/three.js/blob/431baa0a0e808637df959aa547c98e0b2380bdbe/src/math/MathUtils.js#L43-L47)
 - [`p5.js`](https://github.com/processing/p5.js/blob/098f36ded792fca894fdfd947d3293db5bb35e79/src/math/calculation.js#L111-L114)
@@ -62,59 +63,52 @@ We name it the function `clamp`, like how it is in other programming languages..
 - [`sugar`](https://github.com/andrewplummer/Sugar/blob/3ca57818332473b601434001ac1445552d7753ff/lib/range.js#L164-L178)
 - [`phaser`](https://github.com/photonstorm/phaser/blob/29ada646e00ebdd375a31eee871be5b10286ba46/src/math/Clamp.js#L19-L22)
 
-Another motivation is to bring parity with the [CSS function][css-clamp] of the same name, although it will have a different parameter order because of the slightly different use cases in each context (also see [the previous discussion on the order of options for CSS `clamp`](https://github.com/w3c/csswg-drafts/issues/2519#issuecomment-387803089).
+Another motivation is to bring parity with the [CSS function][css-clamp] of the same name, although it will have a different parameter order because of the slightly different use cases in each context (see also [the previous discussion on the order of options for CSS `clamp`](https://github.com/w3c/csswg-drafts/issues/2519#issuecomment-387803089).
 
-Recognizing the usefulness and improved readability of only specifying either a `min` or `max` (i.e. `Math.min(number, 5)` vs `Math.clamp(number, undefined, 5)`), we consider also allowing `null` or `undefined` as values for `min` and `max` to semantically mean "no upper/lower bound". We consider this as opposed to `Math.clampMin` and `Math.clampMax`, or an option bag, to remain conventional to the language.
+The original proposal intended to have the `min` and `max` arguments optional and allowing `null` or `undefined` as values to mean no upper/lower bound; but following [recent TC39 requirements](https://github.com/tc39/how-we-work/blob/main/normative-conventions.md#when-required-arguments-are-missing-throw), it was agreed among some delegates that it would be best to not do this, especially since `Math.min`/`Math.max` remains available for uses with a single bound.
 
 ## Examples
 
 The proposed API allows a developer to clamp numbers like:
 
 ```js
-Math.clamp(5, 0, 10);
-//=> 5
-
-Math.clamp(-5, 0, 10);
-//=> 0
-
-Math.clamp(15, 0, 10);
-//=> 10
+Math.clamp(5, 0, 10) // 5
+Math.clamp(-5, 0, 10) // 0
+Math.clamp(15, 0, 10) // 10
 ```
 
-It handles a larger minimum than maximum number, like how the [CSS `clamp()` function][css-clamp-spec] does.
-
+It supports `-Infinity`/`Infinity` to specify when there is no upper or lower bound, although `Math.min`/`Math.max` are also already available to use:
 ```js
-// Minimum number is larger than maximum value
-Math.clamp(10, 5, 0);
-//=> 10
+Math.clamp(5, 0, Infinity) === Math.max(5, 0) // 5
+Math.clamp(-5, -Infinity, 10) === Math.min(-5, 10) // -5
 ```
 
-It supports `null`/`undefined`/`-Infinity`/`Infinity` to specify when there is no upper or lower bound:
+If the minimum bound is larger than the maximum bound, it throws a `RangeError` to avoid possible developer confusion:
 
 ```js
-Math.clamp(5, 0, null);
-//=> 5
+Math.clamp(10, 5, 0) // RangeError
+```
 
-Math.clamp(5, undefined, 10);
-//=> 5
+It also correctly respects `-0` if given:
+
+```js
+Math.clamp(-2, -0, 10) // -0
+Math.clamp(-0, -0, 10) // -0
+Math.clamp(0, -0, 10) // 0
 ```
 
 ## Specification
 
-- [Ecmarkup source](spec.html)
-- [HTML version](https://richienb.github.io/proposal-math-clamp)
+- [Ecmarkup source](spec.emu)
+- [HTML version](https://canadahonk.github.io/proposal-math-clamp)
 
 ## Implementations
 
-- [Reference Polyfill](polyfill.js)
-
 ## Acknowledgements
 
-Specification and reference implementation inspired by:
+Past work:
 - [`Math` Extensions Proposal](https://github.com/rwaldron/proposal-math-extensions)
-- [`math-clamp`][math-clamp]
 
-[math-clamp]: https://github.com/sindresorhus/math-clamp/blob/3897064dd3e9711a2e47e891d0aa7eb66ccdcef8/index.js#L1-L15
 [math-min]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/min
 [math-max]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/max
 [css-clamp]: https://developer.mozilla.org/en-US/docs/Web/CSS/clamp()

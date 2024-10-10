@@ -31,7 +31,7 @@ jobs:
       - run: npm run docs
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: "./output"
+          path: "./build"
 
   deploy:
     needs: build

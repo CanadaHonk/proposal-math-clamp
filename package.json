@@ -1,39 +1,23 @@
 {
-	"name": "proposal-math-clamp",
-	"version": "0.1.0",
-	"description": "ECMAScript reference implementation for `Math.clamp`.",
-	"repository": "Richienb/proposal-math-clamp",
-	"author": {
-		"name": "Richie Bendall",
-		"email": "richiebendall@gmail.com"
-	},
-	"license": "MIT",
-	"type": "module",
-	"exports": {
-		".": "./implementation.js",
-		"./polyfill": "./polyfill.js"
-	},
-	"files": [
-		"implementation.js",
-		"implementation.d.ts",
-		"polyfill.js"
-	],
-	"engines": {
-		"node": ">=12.20"
-	},
-	"scripts": {
-		"docs": "ecmarkup spec.html output/index.html --lint-spec",
-		"test": "xo && node ./test-implementation.js"
-	},
-	"keywords": [
-		"math",
-		"clamp"
-	],
-	"dependencies": {
-		"es-abstract": "^1.20.1"
-	},
-	"devDependencies": {
-		"ecmarkup": "^9.4.1",
-		"xo": "^0.45.0"
-	}
+  "private": true,
+  "name": "template-for-proposals",
+  "description": "A repository template for ECMAScript proposals.",
+  "scripts": {
+    "start": "npm run build-loose -- --watch",
+    "build": "npm run build-loose -- --strict",
+    "build-loose": "node -e 'fs.mkdirSync(\"build\", { recursive: true })' && ecmarkup --load-biblio @tc39/ecma262-biblio --verbose spec.emu build/index.html --lint-spec"
+  },
+  "homepage": "https://github.com/tc39/template-for-proposals#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tc39/template-for-proposals.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@tc39/ecma262-biblio": "2.1.2778",
+    "ecmarkup": "^20.0.0"
+  },
+  "engines": {
+    "node": ">= 12"
+  }
 }

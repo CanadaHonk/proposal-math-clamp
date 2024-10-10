@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf8">
+<link rel="stylesheet" href="./spec.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<script src="./spec.js"></script>
+<pre class="metadata">
+title: Math.clamp
+stage: 0
+contributors: Oliver Medhurst, Richie Bendall
+</pre>
+
+<emu-intro id="intro">
+	<h1>Introduction</h1>
+	<p><a href="https://github.com/CanadaHonk/proposal-math-clamp">`Math.clamp()` constrains a value between an upper and lower bound.</a></p>
+</emu-intro>
+
+<emu-clause id="sec-math.clamp">
+	<h1>Math.clamp ( _value_, _min_, _max_ )</h1>
+	<p>This function returns the Number value that is the result of constraining _number_ between the bounds defined by _min_ and _max_.</p>
+	<emu-alg>
+        1. If _value_ is not a Number, throw a *TypeError* exception.
+        1. If _min_ is not a Number, throw a *TypeError* exception.
+        1. If _min_ is *NaN*, throw a *RangeError* exception.
+        1. If _max_ is not a Number, throw a *TypeError* exception.
+        1. If _max_ is *NaN*, throw a *RangeError* exception.
+        1. If _min_ ≥ _max_, throw a *RangeError* exception.
+        1. If _value_ is *NaN*, return *NaN*.
+        1. If _value_ is *-0*<sub>𝔽</sub> and _min_ is *+0*<sub>𝔽</sub>, return _min_.
+        1. If _value_ is *+0*<sub>𝔽</sub> and _min_ is *-0*<sub>𝔽</sub>, return _min_.
+        1. If _value_ < _min_, return _min_.
+        1. If _value_ is *-0*<sub>𝔽</sub> and _max_ is *+0*<sub>𝔽</sub>, return _max_.
+        1. If _value_ is *+0*<sub>𝔽</sub> and _max_ is *-0*<sub>𝔽</sub>, return _max_.
+        1. If _value_ > _max_, return _max_.
+        1. Return _value_.
+	</emu-alg>
+</emu-clause>
