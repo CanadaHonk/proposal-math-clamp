@@ -27,7 +27,7 @@ contributors: Oliver Medhurst, Richie Bendall
         1. If _value_ is *NaN*, return *NaN*.
         1. If _value_ is *-0*<sub>𝔽</sub> and _min_ is *+0*<sub>𝔽</sub>, return _min_.
         1. If _value_ is *+0*<sub>𝔽</sub> and _min_ is *-0*<sub>𝔽</sub>, return _min_.
-        1. If _value_ < _min_, return _min_.
+        1. If _value_ &lt; _min_, return _min_.
         1. If _value_ is *-0*<sub>𝔽</sub> and _max_ is *+0*<sub>𝔽</sub>, return _max_.
         1. If _value_ is *+0*<sub>𝔽</sub> and _max_ is *-0*<sub>𝔽</sub>, return _max_.
         1. If _value_ > _max_, return _max_.
