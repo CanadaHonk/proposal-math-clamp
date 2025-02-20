@@ -4,10 +4,10 @@ A TC39 proposal to add `Math.clamp`: a function that constrains a value between 
 
 ## Status
 
-**Stage:** 0  \
+**Stage:** 1  \
 **Champion:** Oliver Medhurst (@canadahonk)  \
 **Authors:** Oliver Medhurst (@canadahonk), Richie Bendall (@richienb)  \
-**Last Presented:** (unpresented)
+**Last Presented:** [106th meeting](https://github.com/tc39/agendas/blob/main/2025/02.md)
 
 ## Overview and motivation
 
